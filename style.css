@@ -1,0 +1,166 @@
+/* Floating Launcher Button */
+#binara-task-launcher {
+    position: fixed;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Priority Ring Container */
+.task-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+/* Individual Ring Segments */
+.ring-segment {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: stroke 0.3s ease;
+    stroke: rgba(255, 255, 255, 0.1);
+    /* Inactive segment color */
+}
+
+/* Active Segment Colors by Priority */
+.seg-0.active {
+    stroke: #ff5252 !important;
+    /* High Priority - Red */
+    opacity: 1 !important;
+}
+
+.seg-1.active {
+    stroke: #ffa726 !important;
+    /* Medium Priority - Orange */
+}
+
+.seg-2.active {
+    stroke: #29b6f6 !important;
+    /* Normal Priority - Blue */
+}
+
+.seg-3.active {
+    stroke: #66bb6a !important;
+    /* Low Priority - Green */
+}
+
+/* Main Dashboard Container */
+#binara-dashboard {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    /* Hidden by default */
+    width: 320px;
+    height: 100vh;
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(15px);
+    color: white;
+    z-index: 100001;
+    padding: 30px;
+    transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    font-family: sans-serif;
+}
+
+/* Opened Dashboard State */
+#binara-dashboard.open {
+    right: 0;
+}
+
+/* Task Input Field */
+#task-input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+}
+
+/* Individual Task Row Styling */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+/* Priority Border Colors for Task List */
+.border-0 {
+    border-left: 5px solid #ff5252 !important;
+}
+
+.border-1 {
+    border-left: 5px solid #ffa726 !important;
+}
+
+.border-2 {
+    border-left: 5px solid #29b6f6 !important;
+}
+
+.border-3 {
+    border-left: 5px solid #66bb6a !important;
+}
+
+/* Task Text Styling */
+.task-text {
+    flex-grow: 1;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Completed Task State */
+.task-text.completed {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+/* Delete Button Styling */
+.delete-btn {
+    color: #ff5252;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Clear All Button Styling */
+#clear-all {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 82, 82, 0.15);
+    color: #ff5252;
+    border: 1px solid #ff5252;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#clear-all:hover {
+    background: #ff5252;
+    color: white;
+}
